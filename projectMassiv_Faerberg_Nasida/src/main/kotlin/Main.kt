@@ -190,7 +190,7 @@ fun runProgram3()
     }
 
     println("Введите текст:")
-    val text = readLine()?.uppercase() ?: run {
+    val text = readLine()?.uppercase()?.takeIf { it.isNotBlank() } ?: run {
         println("Ошибка: текст не может быть пустым")
         return
     }
