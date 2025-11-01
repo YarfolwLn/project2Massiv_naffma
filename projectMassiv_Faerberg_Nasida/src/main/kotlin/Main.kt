@@ -23,7 +23,7 @@ fun main() {
                 println("Программа завершена.")
                 break
             }
-            else -> println("Ошибка: введите число от 0 до 6!")
+            else -> println("Ошибка: введите число от 0 до 5!")
         }
 
         println("\n" + "=".repeat(40) + "\n")
