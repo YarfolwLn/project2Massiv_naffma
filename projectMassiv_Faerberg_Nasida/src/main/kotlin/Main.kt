@@ -303,14 +303,17 @@ fun decrypt(text: String, key: String, alphabet: String): String {
 fun runProgram4()
 {
     println("Введите первый массив чисел через пробел:")
-    val array1 = readLine()?.split(" ")?.map { it.toInt() } ?: emptyList()
+    val array1 = readLine()?.trim()?.split(" ")?.map { it.toInt() } ?: emptyList()
 
     println("Введите второй массив чисел через пробел:")
-    val array2 = readLine()?.split(" ")?.map { it.toInt() } ?: emptyList()
+    val array2 = readLine()?.trim()?.split(" ")?.map { it.toInt() } ?: emptyList()
 
     val result = findIntersection(array1, array2)
-
-    println("Пересечение массивов: ${result.joinToString()}")
+    if (result.isEmpty()) {
+        println("Нет пересечений")
+    } else {
+        println("Пересечение массивов: ${result.joinToString()}")
+    }
 }
 
 fun findIntersection(array1: List<Int>, array2: List<Int>): List<Int> {
@@ -323,8 +326,11 @@ fun findIntersection(array1: List<Int>, array2: List<Int>): List<Int> {
             tempArray2.remove(num)
         }
     }
-
-    return result
+    if (result.isNotEmpty()) {
+        return result
+    } else {
+        return listOf()
+    }
 }
 
 fun runProgram5() {
